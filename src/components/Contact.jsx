@@ -19,11 +19,8 @@ const Contact = () => {
       setPlanets(newPlanets.payload)
     } else {
       fillPlanets(`${base_url}/v1/planets`)
-        .then(planets => {
-          setPlanets(planets);
-          localStorage.setItem("planets", JSON.stringify({ time: Date.now(), payload: planets }));
-        })
-        .catch(e => console.error('Ошибка при загрузке планет:', e));
+      setPlanets(planets);
+      localStorage.setItem("planets", JSON.stringify({ time: Date.now(), payload: planets }));
     }
   }, [])
 
